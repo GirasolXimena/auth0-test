@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { 
+import {
   ReactiveBase,
   CategorySearch,
   RatingsFilter,
-  ResultCard,
+  ResultCard
 } from '@appbaseio/reactivesearch';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
   onData(res) {
@@ -19,11 +17,12 @@ class App extends Component {
     };
     return result;
   }
+
   render() {
     return (
       <ReactiveBase
-      app="car-store"
-      credentials="cf7QByt5e:d2d60548-82a9-43cc-8b40-93cbbe75c34c"
+        app="car-store"
+        credentials="cf7QByt5e:d2d60548-82a9-43cc-8b40-93cbbe75c34c"
       >
         <div className="row reverse-labels">
           <div className="col s6 col-xs-6">
@@ -81,14 +80,14 @@ class App extends Component {
                 }
               ]}
               react={{
-                and: ["SearchSensor", "RatingsSensor"]
-            }}
-          />
+                  and: ["SearchSensor", "RatingsSensor"]
+              }}
+            />
+          </div>
         </div>
-      </div>
-    </ReactiveBase>
-    );
+      </ReactiveBase>
+      );
+    }
   }
-}
 
-export default App;
+  export default App;

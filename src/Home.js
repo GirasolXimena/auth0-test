@@ -3,11 +3,21 @@ import App from './App';
 
 class Home extends Component {
 
+    componentDidMount() {
+        console.log(this.props);        
+        
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.props.auth.isAuthenticated());
+
+    }
+
     //calling login method from authentication service
-    login = () => this.props.auth.login();
+    login = () => {this.props.auth.login();}
 
     //calling the logout method from the authentication service
-    logout = () => this.props.auth.logout();
+    logout = () => {this.props.auth.logout();}
 
     render() { 
         //checking to see if person is authenticated
@@ -30,12 +40,12 @@ class Home extends Component {
                     </div>
                 }
                 {
-                    !isAuthenticated && 
+                    !isAuthenticated() && 
                     (
                         <div className="container column" >
                             <h5>React auth0 training</h5>
                             <h5>
-                                You are not logged in! Please {' '}
+                                You are not logged in! Please {''}
                                 <a 
                                  style={{cursor: 'pointer'}}
                                  onClick={this.login}
